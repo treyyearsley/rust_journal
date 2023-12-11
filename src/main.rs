@@ -6,13 +6,13 @@ use std::io;
 //create function to handle journal entries
 fn journal_entry() {
     //this will create a file in which to store the entries
-    let mut data_file = File::create("journal.txt").expect("creation failed");
+    let mut journal_file = File::create("journal.txt").expect("creation failed");
     let mut journal_entry = String::new();
 
     println!("\nEnter the date followed by your journal entry. (12/11/2023  Dear Journal...)");
     //write the entries to the txt file.
     io::stdin().read_line(&mut journal_entry).expect("Failed to read line");
-    data_file.write({journal_entry}.as_bytes()).expect("write failed");
+    journal_file.write({journal_entry}.as_bytes()).expect("write failed");
 }
 
 //function to handle reading ftom the txt file.
